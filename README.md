@@ -208,11 +208,9 @@ machine first.
 
 ## 6. Running on Sunspot
 
-Identical, except the PBS header:
+Identical, and please ensure you load the same module:
 
-```bash
-#PBS -l filesystems=home:tegu
-#PBS -q workq
+```module load oneapi/release/2025.3.1
 ```
 
 ⚠ Verify both. Change nothing else — same AMReX tag, same flags, same oneAPI
