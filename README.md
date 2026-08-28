@@ -210,7 +210,8 @@ machine first.
 
 Identical, and please ensure you load the same module:
 
-```module load oneapi/release/2025.3.1
+```bash
+module load oneapi/release/2025.3.1
 ```
 
 ⚠ Verify both. Change nothing else — same AMReX tag, same flags, same oneAPI
