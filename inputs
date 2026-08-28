@@ -1,0 +1,38 @@
+# Inputs file for the AMReX/MPI halo-exchange mini-app.
+#
+# Run as:  mpiexec -n 12 ./main3d.ex inputs
+# Any of these can still be overridden on the command line, e.g.:
+#   mpiexec -n 12 ./main3d.ex inputs n_iter=100
+#
+# See BUILD_AMREX.md for build and run instructions.
+
+#----------------------DOMAIN DEFINITION------------------------
+n_cell        = 64
+
+# Deliberately smaller than the domain: on a 64^3 domain this yields
+# 4^3 = 64 boxes, so a 12-rank run actually exercises inter-rank halo
+# exchange. At 64 there would be a single box, 11 idle ranks, and no
+# exchange at all.
+#
+# Note that 64 boxes over 12 ranks is not an even split — four ranks get 6
+# boxes and eight get 5. That ~20% imbalance shows up as a gap between
+# [FillBoundary] max and avg, since the lighter ranks wait inside the
+# exchange for the heavier ones.
+max_grid_size = 16
+
+#-------------------------GHOST CELLS-----------------------------
+# Halo width. Message size scales with ngrow * ncomp; at the defaults each
+# exchange is a few KB, which is the latency-dominated regime.
+ngrow = 1
+
+#--------------------------FIELD SETUP------------------------------
+# Components in the MultiFab. 1 is enough to exercise FillBoundary(). Raise
+# it to push message sizes toward the bandwidth-dominated regime.
+ncomp = 1
+
+#------------------------TIMING LOOP CONTROL-------------------------
+# Untimed iterations first (first-touch, allocation, JIT, FillBoundary
+# metadata cache, MPI connection setup), then the timed loop. Increase
+# n_iter for tighter statistics; 50 is a reasonable starting point.
+n_warmup = 5
+n_iter   = 50

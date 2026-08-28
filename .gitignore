@@ -1,0 +1,22 @@
+# Build artifacts
+*.ex
+*.o
+*.mod
+tmp_build_dir/
+
+# Run output
+*.out
+*.err
+timings.*
+provenance.*
+build_provenance.*
+core.*
+
+# Editor / tooling
+*.swp
+*~
+.DS_Store
+.claude/
+
+# Internal notes, not part of the published mini-app
+README.md
