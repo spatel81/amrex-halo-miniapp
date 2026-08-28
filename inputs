@@ -4,7 +4,7 @@
 # Any of these can still be overridden on the command line, e.g.:
 #   mpiexec -n 12 ./main3d.ex inputs n_iter=100
 #
-# See BUILD_AMREX.md for build and run instructions.
+# See README.md for build and run instructions.
 
 #----------------------DOMAIN DEFINITION------------------------
 n_cell        = 64

@@ -10,7 +10,7 @@
 // physics, particles, plotfile I/O in the timed region. Those are separate
 // concerns and would only muddy the comparison.
 //
-// See BUILD_AMREX.md for build and run instructions.
+// See README.md for build and run instructions.
 
 #include <AMReX.H>
 #include <AMReX_ParmParse.H>

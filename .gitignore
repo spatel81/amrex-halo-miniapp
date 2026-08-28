@@ -17,6 +17,3 @@ core.*
 *~
 .DS_Store
 .claude/
-
-# Internal notes, not part of the published mini-app
-README.md

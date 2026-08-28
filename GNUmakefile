@@ -4,7 +4,7 @@
 #
 # Compile and link flags are taken straight from the installed amrex.pc, so
 # the application inherits exactly what the library was built with. Build
-# libamrex first — see BUILD_AMREX.md.
+# libamrex first — see README.md.
 #
 # Link with the same mpicxx/icpx that built the library; SYCL device-code
 # linking fails confusingly across a compiler mismatch. CXX is set below
